@@ -67,31 +67,57 @@ class PlayRoute extends StatefulWidget {
   }
 }
 
-class PlayRouteState extends State<PlayRoute> {
+class PlayRouteState extends State<PlayRoute> { 
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void _openDrawer() {
+    _scaffoldKey.currentState!.openDrawer();
+  }
+
+  void _closeDrawer() {
+    Navigator.of(context).pop();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: const Text('Dicey / Play'),
         automaticallyImplyLeading: false,
         actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(right: 20.0),
-            child: GestureDetector(
-              onTap: () {},
-              child: const Icon(Icons.menu, size: 26.0),
-            ),
+          IconButton(
+            padding: const EdgeInsets.only(right: 20.0), 
+            icon: const Icon(Icons.menu),
+            onPressed: _openDrawer,
           ),
         ],
       ),
-      drawer: SideMenuWidget(),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context); 
-          },
-          child: const Text('Menu'),
+      drawer: const Drawer(
+        child: SideMenuWidget(),
+      ),
+      body: Container(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:[
+              ElevatedButton(
+                onPressed: _openDrawer,
+                child: const Text('Pick your dices!!!'),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.pink,
+                  fixedSize: const Size(150, 50),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50))
+                ),
+              ), 
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context); 
+                },
+                child: const Text('Menu'),
+              ),
+            ]  
+          ),
         ),
       ),
     );
