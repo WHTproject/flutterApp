@@ -1,5 +1,15 @@
+// ignore_for_file: deprecated_member_use
+
+import 'package:diceapp/Tetrahedron.dart';
+import 'package:diceapp/octahedron.dart';
+import 'package:diceapp/pentatrape.dart';
 import 'package:flutter/material.dart';
 import 'package:diceapp/side_menu_widget.dart';
+import 'dart:math';
+
+import 'cube.dart';
+import 'dodecahedron.dart';
+import 'icosahedron.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -89,53 +99,83 @@ class PlayRouteState extends State<PlayRoute> {
           PopupMenuButton(
             icon: const Icon(Icons.menu),
             itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-              const PopupMenuItem(
+              PopupMenuItem(
                 child: ListTile(
-                  leading: Icon(Icons.view_in_ar),
-                  title: Text('Tetrahedron'),
-                  iconColor: Color.fromARGB(255, 0, 0, 0),
-                  textColor: Color.fromARGB(255, 0, 0, 0),
-                ),
+                    leading: const Icon(Icons.view_in_ar),
+                    title: const Text('Tetrahedron'),
+                    iconColor: const Color.fromARGB(255, 0, 0, 0),
+                    textColor: const Color.fromARGB(255, 0, 0, 0),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyTetra()),
+                      );
+                    }),
               ),
-              const PopupMenuItem(
+              PopupMenuItem(
                 child: ListTile(
-                  leading: Icon(Icons.view_in_ar),
-                  title: Text('Cube'),
-                  iconColor: Color.fromARGB(255, 0, 0, 0),
-                  textColor: Color.fromARGB(255, 0, 0, 0),
-                ),
+                    leading: const Icon(Icons.view_in_ar),
+                    title: const Text('Cube'),
+                    iconColor: const Color.fromARGB(255, 0, 0, 0),
+                    textColor: const Color.fromARGB(255, 0, 0, 0),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyCube()),
+                      );
+                    }),
               ),
-              const PopupMenuItem(
+              PopupMenuItem(
                 child: ListTile(
-                  leading: Icon(Icons.view_in_ar),
-                  title: Text('Octahedron'),
-                  iconColor: Color.fromARGB(255, 0, 0, 0),
-                  textColor: Color.fromARGB(255, 0, 0, 0),
-                ),
+                    leading: const Icon(Icons.view_in_ar),
+                    title: const Text('Octahedron'),
+                    iconColor: const Color.fromARGB(255, 0, 0, 0),
+                    textColor: const Color.fromARGB(255, 0, 0, 0),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyOcta()),
+                      );
+                    }),
               ),
-              const PopupMenuItem(
+              PopupMenuItem(
                 child: ListTile(
-                  leading: Icon(Icons.view_in_ar),
-                  title: Text('Pentagonal trapezohedron'),
-                  iconColor: Color.fromARGB(255, 0, 0, 0),
-                  textColor: Color.fromARGB(255, 0, 0, 0),
-                ),
+                    leading: const Icon(Icons.view_in_ar),
+                    title: const Text('Pentagonal trapezohedron'),
+                    iconColor: const Color.fromARGB(255, 0, 0, 0),
+                    textColor: const Color.fromARGB(255, 0, 0, 0),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Mypentatrape()),
+                      );
+                    }),
               ),
-              const PopupMenuItem(
+              PopupMenuItem(
                 child: ListTile(
-                  leading: Icon(Icons.view_in_ar),
-                  title: Text('Dodecahedron'),
-                  iconColor: Color.fromARGB(255, 0, 0, 0),
-                  textColor: Color.fromARGB(255, 0, 0, 0),
-                ),
+                    leading: const Icon(Icons.view_in_ar),
+                    title: const Text('Dodecahedron'),
+                    iconColor: const Color.fromARGB(255, 0, 0, 0),
+                    textColor: const Color.fromARGB(255, 0, 0, 0),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyDodeca()),
+                      );
+                    }),
               ),
-              const PopupMenuItem(
+              PopupMenuItem(
                 child: ListTile(
-                  leading: Icon(Icons.view_in_ar),
-                  title: Text('Icosahedron'),
-                  iconColor: Color.fromARGB(255, 0, 0, 0),
-                  textColor: Color.fromARGB(255, 0, 0, 0),
-                ),
+                    leading: const Icon(Icons.view_in_ar),
+                    title: const Text('Icosahedron'),
+                    iconColor: const Color.fromARGB(255, 0, 0, 0),
+                    textColor: const Color.fromARGB(255, 0, 0, 0),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyIcosa()),
+                      );
+                    }),
               ),
             ],
           ),
@@ -184,7 +224,7 @@ class OptionsRoute extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             const Text('Choose your dice count'),
-            const MyStatefulWidget(),
+            const MyStatefulCube(),
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
@@ -194,33 +234,6 @@ class OptionsRoute extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
-
-  @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
-}
-
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  double _currentSliderValue = 1;
-
-  @override
-  Widget build(BuildContext context) {
-    return Slider(
-      value: _currentSliderValue,
-      min: 1,
-      max: 4,
-      divisions: 4,
-      label: _currentSliderValue.round().toString(),
-      onChanged: (double value) {
-        setState(() {
-          _currentSliderValue = value;
-        });
-      },
     );
   }
 }
