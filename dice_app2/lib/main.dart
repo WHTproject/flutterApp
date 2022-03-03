@@ -172,19 +172,55 @@ class OptionsRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: dead_code
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dicey / Options'),
         automaticallyImplyLeading: false,
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Menu'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            const Text('Choose your dice count'),
+            const MyStatefulWidget(),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Menu'),
+            ),
+          ],
         ),
       ),
+    );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key? key}) : super(key: key);
+
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  double _currentSliderValue = 1;
+
+  @override
+  Widget build(BuildContext context) {
+    return Slider(
+      value: _currentSliderValue,
+      min: 1,
+      max: 4,
+      divisions: 4,
+      label: _currentSliderValue.round().toString(),
+      onChanged: (double value) {
+        setState(() {
+          _currentSliderValue = value;
+        });
+      },
     );
   }
 }
