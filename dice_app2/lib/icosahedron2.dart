@@ -20,22 +20,22 @@ import 'dodecahedron2.dart';
 import 'dodecahedron3.dart';
 import 'dodecahedron4.dart';
 import 'icosahedron.dart';
-import 'icosahedron2.dart';
 import 'icosahedron3.dart';
 import 'icosahedron4.dart';
 import 'main.dart';
+import 'octahedron.dart';
 import 'octahedron2.dart';
 import 'octahedron3.dart';
 import 'octahedron4.dart';
 
-class MyStatefulOcta extends StatefulWidget {
-  const MyStatefulOcta({Key? key}) : super(key: key);
+class MyStatefulIcosa2 extends StatefulWidget {
+  const MyStatefulIcosa2({Key? key}) : super(key: key);
 
   @override
-  State<MyStatefulOcta> createState() => _MyStatefulOctaState();
+  State<MyStatefulIcosa2> createState() => _MyStatefulIcosaState2();
 }
 
-class _MyStatefulOctaState extends State<MyStatefulOcta> {
+class _MyStatefulIcosaState2 extends State<MyStatefulIcosa2> {
   double _currentSliderValue = 1;
 
   @override
@@ -55,15 +55,15 @@ class _MyStatefulOctaState extends State<MyStatefulOcta> {
   }
 }
 
-class MyOcta extends StatefulWidget {
+class MyIcosa2 extends StatefulWidget {
   // ignore: use_key_in_widget_constructors
-  const MyOcta();
+  const MyIcosa2();
 
   @override
-  _MyOctaState createState() => _MyOctaState();
+  _MyIcosaState2 createState() => _MyIcosaState2();
 }
 
-class _MyOctaState extends State<MyOcta> {
+class _MyIcosaState2 extends State<MyIcosa2> {
   var imageArray = [
     'one.png',
     'two.png',
@@ -73,17 +73,29 @@ class _MyOctaState extends State<MyOcta> {
     'six.png',
     'seven.png',
     'eight.png',
+    'nine.png',
+    'ten.png',
+    'eleven.png',
+    'twelve.png',
+    'thirteen.png',
+    'fourteen.png',
+    'fifteen.png',
+    'sixteen.png',
+    'seventeen.png',
+    'eighteen.png',
+    'nineteen.png',
+    'twenty.png',
   ];
   //var random = new Random();
-  int randomIntForDiceOne = Random().nextInt(8);
-  //int randomIntForDiceTwo = Random().nextInt(6);
+  int randomIntForDiceOne = Random().nextInt(20);
+  int randomIntForDiceTwo = Random().nextInt(20);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 61, 61, 61),
-          title: const Text('Dicey / Octa'),
+          title: const Text('Dicey / Icosa'),
           automaticallyImplyLeading: false,
           actions: <Widget>[
             PopupMenuButton(
@@ -337,15 +349,15 @@ class _MyOctaState extends State<MyOcta> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   Image.asset(
-                    'Octahedron/' + imageArray[randomIntForDiceOne],
+                    'icosahedron/' + imageArray[randomIntForDiceOne],
                     height: 150,
                     width: 150,
                   ),
-                  /*Image.asset(
-                    'images/' + imageArray[randomIntForDiceTwo],
+                  Image.asset(
+                    'icosahedron/' + imageArray[randomIntForDiceTwo],
                     height: 150,
                     width: 150,
-                  ),*/
+                  ),
                 ],
               ),
               Padding(
@@ -375,8 +387,8 @@ class _MyOctaState extends State<MyOcta> {
 
   void changeImage() {
     setState(() {
-      randomIntForDiceOne = Random().nextInt(8);
-      // randomIntForDiceTwo = Random().nextInt(6);
+      randomIntForDiceOne = Random().nextInt(20);
+      randomIntForDiceTwo = Random().nextInt(20);
     });
   }
 }

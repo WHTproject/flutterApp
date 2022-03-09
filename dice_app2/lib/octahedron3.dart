@@ -24,18 +24,18 @@ import 'icosahedron2.dart';
 import 'icosahedron3.dart';
 import 'icosahedron4.dart';
 import 'main.dart';
+import 'octahedron.dart';
 import 'octahedron2.dart';
-import 'octahedron3.dart';
 import 'octahedron4.dart';
 
-class MyStatefulOcta extends StatefulWidget {
-  const MyStatefulOcta({Key? key}) : super(key: key);
+class MyStatefulOcta3 extends StatefulWidget {
+  const MyStatefulOcta3({Key? key}) : super(key: key);
 
   @override
-  State<MyStatefulOcta> createState() => _MyStatefulOctaState();
+  State<MyStatefulOcta3> createState() => _MyStatefulOctaState3();
 }
 
-class _MyStatefulOctaState extends State<MyStatefulOcta> {
+class _MyStatefulOctaState3 extends State<MyStatefulOcta3> {
   double _currentSliderValue = 1;
 
   @override
@@ -55,15 +55,15 @@ class _MyStatefulOctaState extends State<MyStatefulOcta> {
   }
 }
 
-class MyOcta extends StatefulWidget {
+class MyOcta3 extends StatefulWidget {
   // ignore: use_key_in_widget_constructors
-  const MyOcta();
+  const MyOcta3();
 
   @override
   _MyOctaState createState() => _MyOctaState();
 }
 
-class _MyOctaState extends State<MyOcta> {
+class _MyOctaState extends State<MyOcta3> {
   var imageArray = [
     'one.png',
     'two.png',
@@ -76,7 +76,8 @@ class _MyOctaState extends State<MyOcta> {
   ];
   //var random = new Random();
   int randomIntForDiceOne = Random().nextInt(8);
-  //int randomIntForDiceTwo = Random().nextInt(6);
+  int randomIntForDiceTwo = Random().nextInt(8);
+  int randomIntForDiceThree = Random().nextInt(8);
 
   @override
   Widget build(BuildContext context) {
@@ -338,14 +339,19 @@ class _MyOctaState extends State<MyOcta> {
                 children: <Widget>[
                   Image.asset(
                     'Octahedron/' + imageArray[randomIntForDiceOne],
-                    height: 150,
-                    width: 150,
+                    height: 100,
+                    width: 100,
                   ),
-                  /*Image.asset(
-                    'images/' + imageArray[randomIntForDiceTwo],
-                    height: 150,
-                    width: 150,
-                  ),*/
+                  Image.asset(
+                    'Octahedron/' + imageArray[randomIntForDiceTwo],
+                    height: 100,
+                    width: 100,
+                  ),
+                  Image.asset(
+                    'Octahedron/' + imageArray[randomIntForDiceThree],
+                    height: 100,
+                    width: 100,
+                  ),
                 ],
               ),
               Padding(
@@ -376,7 +382,8 @@ class _MyOctaState extends State<MyOcta> {
   void changeImage() {
     setState(() {
       randomIntForDiceOne = Random().nextInt(8);
-      // randomIntForDiceTwo = Random().nextInt(6);
+      randomIntForDiceTwo = Random().nextInt(8);
+      randomIntForDiceThree = Random().nextInt(8);
     });
   }
 }

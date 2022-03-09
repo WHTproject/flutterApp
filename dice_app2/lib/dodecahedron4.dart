@@ -18,24 +18,24 @@ import 'cube4.dart';
 import 'dodecahedron.dart';
 import 'dodecahedron2.dart';
 import 'dodecahedron3.dart';
-import 'dodecahedron4.dart';
 import 'icosahedron.dart';
 import 'icosahedron2.dart';
 import 'icosahedron3.dart';
 import 'icosahedron4.dart';
 import 'main.dart';
+import 'octahedron.dart';
 import 'octahedron2.dart';
 import 'octahedron3.dart';
 import 'octahedron4.dart';
 
-class MyStatefulOcta extends StatefulWidget {
-  const MyStatefulOcta({Key? key}) : super(key: key);
+class MyStatefulDodeca4 extends StatefulWidget {
+  const MyStatefulDodeca4({Key? key}) : super(key: key);
 
   @override
-  State<MyStatefulOcta> createState() => _MyStatefulOctaState();
+  State<MyStatefulDodeca4> createState() => _MyStatefulDodecaState4();
 }
 
-class _MyStatefulOctaState extends State<MyStatefulOcta> {
+class _MyStatefulDodecaState4 extends State<MyStatefulDodeca4> {
   double _currentSliderValue = 1;
 
   @override
@@ -55,15 +55,15 @@ class _MyStatefulOctaState extends State<MyStatefulOcta> {
   }
 }
 
-class MyOcta extends StatefulWidget {
+class MyDodeca4 extends StatefulWidget {
   // ignore: use_key_in_widget_constructors
-  const MyOcta();
+  const MyDodeca4();
 
   @override
-  _MyOctaState createState() => _MyOctaState();
+  _MyDodecaState4 createState() => _MyDodecaState4();
 }
 
-class _MyOctaState extends State<MyOcta> {
+class _MyDodecaState4 extends State<MyDodeca4> {
   var imageArray = [
     'one.png',
     'two.png',
@@ -73,17 +73,23 @@ class _MyOctaState extends State<MyOcta> {
     'six.png',
     'seven.png',
     'eight.png',
+    'nine.png',
+    'ten.png',
+    'eleven.png',
+    'twelve.png',
   ];
   //var random = new Random();
-  int randomIntForDiceOne = Random().nextInt(8);
-  //int randomIntForDiceTwo = Random().nextInt(6);
+  int randomIntForDiceOne = Random().nextInt(12);
+  int randomIntForDiceTwo = Random().nextInt(12);
+  int randomIntForDiceThree = Random().nextInt(12);
+  int randomIntForDiceFour = Random().nextInt(12);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 61, 61, 61),
-          title: const Text('Dicey / Octa'),
+          title: const Text('Dicey / Dodeca'),
           automaticallyImplyLeading: false,
           actions: <Widget>[
             PopupMenuButton(
@@ -337,15 +343,25 @@ class _MyOctaState extends State<MyOcta> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   Image.asset(
-                    'Octahedron/' + imageArray[randomIntForDiceOne],
-                    height: 150,
-                    width: 150,
+                    'dodecahedron/' + imageArray[randomIntForDiceOne],
+                    height: 75,
+                    width: 75,
                   ),
-                  /*Image.asset(
-                    'images/' + imageArray[randomIntForDiceTwo],
-                    height: 150,
-                    width: 150,
-                  ),*/
+                  Image.asset(
+                    'dodecahedron/' + imageArray[randomIntForDiceTwo],
+                    height: 75,
+                    width: 75,
+                  ),
+                  Image.asset(
+                    'dodecahedron/' + imageArray[randomIntForDiceThree],
+                    height: 75,
+                    width: 75,
+                  ),
+                  Image.asset(
+                    'dodecahedron/' + imageArray[randomIntForDiceFour],
+                    height: 75,
+                    width: 75,
+                  ),
                 ],
               ),
               Padding(
@@ -375,8 +391,10 @@ class _MyOctaState extends State<MyOcta> {
 
   void changeImage() {
     setState(() {
-      randomIntForDiceOne = Random().nextInt(8);
-      // randomIntForDiceTwo = Random().nextInt(6);
+      randomIntForDiceOne = Random().nextInt(12);
+      randomIntForDiceTwo = Random().nextInt(12);
+      randomIntForDiceThree = Random().nextInt(12);
+      randomIntForDiceFour = Random().nextInt(12);
     });
   }
 }

@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:diceapp/dodecahedron.dart';
 import 'package:diceapp/pentatrape.dart';
-import 'package:diceapp/pentatrape2.dart';
 import 'package:diceapp/pentatrape3.dart';
 import 'package:diceapp/pentatrape4.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,6 @@ import 'cube.dart';
 import 'cube2.dart';
 import 'cube3.dart';
 import 'cube4.dart';
-import 'dodecahedron.dart';
 import 'dodecahedron2.dart';
 import 'dodecahedron3.dart';
 import 'dodecahedron4.dart';
@@ -24,18 +23,19 @@ import 'icosahedron2.dart';
 import 'icosahedron3.dart';
 import 'icosahedron4.dart';
 import 'main.dart';
+import 'octahedron.dart';
 import 'octahedron2.dart';
 import 'octahedron3.dart';
 import 'octahedron4.dart';
 
-class MyStatefulOcta extends StatefulWidget {
-  const MyStatefulOcta({Key? key}) : super(key: key);
+class MyStatefulpentatrape2 extends StatefulWidget {
+  const MyStatefulpentatrape2({Key? key}) : super(key: key);
 
   @override
-  State<MyStatefulOcta> createState() => _MyStatefulOctaState();
+  State<MyStatefulpentatrape2> createState() => _MyStatefulpentatrapeState2();
 }
 
-class _MyStatefulOctaState extends State<MyStatefulOcta> {
+class _MyStatefulpentatrapeState2 extends State<MyStatefulpentatrape2> {
   double _currentSliderValue = 1;
 
   @override
@@ -55,15 +55,15 @@ class _MyStatefulOctaState extends State<MyStatefulOcta> {
   }
 }
 
-class MyOcta extends StatefulWidget {
+class Mypentatrape2 extends StatefulWidget {
   // ignore: use_key_in_widget_constructors
-  const MyOcta();
+  const Mypentatrape2();
 
   @override
-  _MyOctaState createState() => _MyOctaState();
+  _MypentatrapeState2 createState() => _MypentatrapeState2();
 }
 
-class _MyOctaState extends State<MyOcta> {
+class _MypentatrapeState2 extends State<Mypentatrape2> {
   var imageArray = [
     'one.png',
     'two.png',
@@ -73,17 +73,19 @@ class _MyOctaState extends State<MyOcta> {
     'six.png',
     'seven.png',
     'eight.png',
+    'nine.png',
+    'ten.png',
   ];
   //var random = new Random();
-  int randomIntForDiceOne = Random().nextInt(8);
-  //int randomIntForDiceTwo = Random().nextInt(6);
+  int randomIntForDiceOne = Random().nextInt(10);
+  int randomIntForDiceTwo = Random().nextInt(10);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 61, 61, 61),
-          title: const Text('Dicey / Octa'),
+          title: const Text('Dicey / Pentagonal...'),
           automaticallyImplyLeading: false,
           actions: <Widget>[
             PopupMenuButton(
@@ -337,15 +339,15 @@ class _MyOctaState extends State<MyOcta> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   Image.asset(
-                    'Octahedron/' + imageArray[randomIntForDiceOne],
+                    'pentatrape/' + imageArray[randomIntForDiceOne],
                     height: 150,
                     width: 150,
                   ),
-                  /*Image.asset(
-                    'images/' + imageArray[randomIntForDiceTwo],
+                  Image.asset(
+                    'pentatrape/' + imageArray[randomIntForDiceTwo],
                     height: 150,
                     width: 150,
-                  ),*/
+                  ),
                 ],
               ),
               Padding(
@@ -375,8 +377,8 @@ class _MyOctaState extends State<MyOcta> {
 
   void changeImage() {
     setState(() {
-      randomIntForDiceOne = Random().nextInt(8);
-      // randomIntForDiceTwo = Random().nextInt(6);
+      randomIntForDiceOne = Random().nextInt(10);
+      randomIntForDiceTwo = Random().nextInt(10);
     });
   }
 }

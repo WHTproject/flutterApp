@@ -1,12 +1,32 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:diceapp/pentatrape.dart';
+import 'package:diceapp/pentatrape2.dart';
+import 'package:diceapp/pentatrape3.dart';
+import 'package:diceapp/pentatrape4.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
 import 'Tetrahedron.dart';
+import 'Tetrahedron2.dart';
+import 'Tetrahedron3.dart';
+import 'Tetrahedron4.dart';
 import 'cube.dart';
+import 'cube2.dart';
+import 'cube3.dart';
+import 'cube4.dart';
 import 'dodecahedron.dart';
+import 'dodecahedron2.dart';
+import 'dodecahedron3.dart';
+import 'dodecahedron4.dart';
+import 'icosahedron2.dart';
+import 'icosahedron3.dart';
+import 'icosahedron4.dart';
 import 'main.dart';
 import 'octahedron.dart';
+import 'octahedron2.dart';
+import 'octahedron3.dart';
+import 'octahedron4.dart';
 
 class MyStatefulIcosa extends StatefulWidget {
   const MyStatefulIcosa({Key? key}) : super(key: key);
@@ -36,7 +56,8 @@ class _MyStatefulIcosaState extends State<MyStatefulIcosa> {
 }
 
 class MyIcosa extends StatefulWidget {
-  MyIcosa();
+  // ignore: use_key_in_widget_constructors
+  const MyIcosa();
 
   @override
   _MyIcosaState createState() => _MyIcosaState();
@@ -73,6 +94,7 @@ class _MyIcosaState extends State<MyIcosa> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 61, 61, 61),
           title: const Text('Dicey / Icosa'),
           automaticallyImplyLeading: false,
           actions: <Widget>[
@@ -86,10 +108,34 @@ class _MyIcosaState extends State<MyIcosa> {
                       iconColor: const Color.fromARGB(255, 0, 0, 0),
                       textColor: const Color.fromARGB(255, 0, 0, 0),
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => MyTetra()),
-                        );
+                        if (MyStatefulCubeState.number == 1) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyTetra()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 2) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyTetra2()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 3) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyTetra3()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 4) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyTetra4()),
+                          );
+                        }
                       }),
                 ),
                 PopupMenuItem(
@@ -99,10 +145,34 @@ class _MyIcosaState extends State<MyIcosa> {
                       iconColor: const Color.fromARGB(255, 0, 0, 0),
                       textColor: const Color.fromARGB(255, 0, 0, 0),
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => MyCube()),
-                        );
+                        if (MyStatefulCubeState.number == 1) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyCube()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 2) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyCube2()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 3) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyCube3()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 4) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyCube4()),
+                          );
+                        }
                       }),
                 ),
                 PopupMenuItem(
@@ -112,10 +182,34 @@ class _MyIcosaState extends State<MyIcosa> {
                       iconColor: const Color.fromARGB(255, 0, 0, 0),
                       textColor: const Color.fromARGB(255, 0, 0, 0),
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => MyOcta()),
-                        );
+                        if (MyStatefulCubeState.number == 1) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyOcta()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 2) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyOcta2()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 3) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyOcta3()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 4) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyOcta4()),
+                          );
+                        }
                       }),
                 ),
                 PopupMenuItem(
@@ -125,11 +219,34 @@ class _MyIcosaState extends State<MyIcosa> {
                       iconColor: const Color.fromARGB(255, 0, 0, 0),
                       textColor: const Color.fromARGB(255, 0, 0, 0),
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Mypentatrape()),
-                        );
+                        if (MyStatefulCubeState.number == 1) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Mypentatrape()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 2) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Mypentatrape2()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 3) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Mypentatrape3()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 4) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Mypentatrape4()),
+                          );
+                        }
                       }),
                 ),
                 PopupMenuItem(
@@ -139,10 +256,34 @@ class _MyIcosaState extends State<MyIcosa> {
                       iconColor: const Color.fromARGB(255, 0, 0, 0),
                       textColor: const Color.fromARGB(255, 0, 0, 0),
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => MyDodeca()),
-                        );
+                        if (MyStatefulCubeState.number == 1) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyDodeca()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 2) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyDodeca2()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 3) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyDodeca3()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 4) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyDodeca4()),
+                          );
+                        }
                       }),
                 ),
                 PopupMenuItem(
@@ -152,10 +293,34 @@ class _MyIcosaState extends State<MyIcosa> {
                       iconColor: const Color.fromARGB(255, 0, 0, 0),
                       textColor: const Color.fromARGB(255, 0, 0, 0),
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => MyIcosa()),
-                        );
+                        if (MyStatefulCubeState.number == 1) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyIcosa()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 2) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyIcosa2()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 3) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyIcosa3()),
+                          );
+                        }
+                        if (MyStatefulCubeState.number == 4) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyIcosa4()),
+                          );
+                        }
                       }),
                 ),
               ],

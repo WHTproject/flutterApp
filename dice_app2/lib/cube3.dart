@@ -1,5 +1,5 @@
 // ignore_for_file: deprecated_member_use
-
+import 'package:diceapp/octahedron.dart';
 import 'package:diceapp/pentatrape.dart';
 import 'package:diceapp/pentatrape2.dart';
 import 'package:diceapp/pentatrape3.dart';
@@ -13,7 +13,6 @@ import 'Tetrahedron3.dart';
 import 'Tetrahedron4.dart';
 import 'cube.dart';
 import 'cube2.dart';
-import 'cube3.dart';
 import 'cube4.dart';
 import 'dodecahedron.dart';
 import 'dodecahedron2.dart';
@@ -28,62 +27,68 @@ import 'octahedron2.dart';
 import 'octahedron3.dart';
 import 'octahedron4.dart';
 
-class MyStatefulOcta extends StatefulWidget {
-  const MyStatefulOcta({Key? key}) : super(key: key);
+class MyStatefulCube3 extends StatefulWidget {
+  const MyStatefulCube3({Key? key}) : super(key: key);
 
   @override
-  State<MyStatefulOcta> createState() => _MyStatefulOctaState();
+  State<MyStatefulCube3> createState() => MyStatefulCubeState3();
 }
 
-class _MyStatefulOctaState extends State<MyStatefulOcta> {
-  double _currentSliderValue = 1;
+class MyStatefulCubeState3 extends State<MyStatefulCube3> {
+  static double currentSliderValue = 1;
+
+  static double number = 1;
 
   @override
   Widget build(BuildContext context) {
     return Slider(
-      value: _currentSliderValue,
+      value: currentSliderValue,
       min: 1,
       max: 4,
-      divisions: 4,
-      label: _currentSliderValue.round().toString(),
-      onChanged: (double value) {
+      divisions: 3,
+      label: currentSliderValue.round().toString(),
+      onChanged: (double newValue) {
         setState(() {
-          _currentSliderValue = value;
+          currentSliderValue = newValue;
         });
+      },
+      onChangeEnd: (newvalue) {
+        number = newvalue;
+        print("Value selected $newvalue");
       },
     );
   }
 }
 
-class MyOcta extends StatefulWidget {
+class MyCube3 extends StatefulWidget {
   // ignore: use_key_in_widget_constructors
-  const MyOcta();
+  const MyCube3();
 
   @override
-  _MyOctaState createState() => _MyOctaState();
+  _MyCubeState3 createState() => _MyCubeState3();
 }
 
-class _MyOctaState extends State<MyOcta> {
+class _MyCubeState3 extends State<MyCube3> {
   var imageArray = [
     'one.png',
     'two.png',
     'three.png',
     'four.png',
     'five.png',
-    'six.png',
-    'seven.png',
-    'eight.png',
+    'six.png'
   ];
+
   //var random = new Random();
-  int randomIntForDiceOne = Random().nextInt(8);
-  //int randomIntForDiceTwo = Random().nextInt(6);
+  int randomIntForDiceOne = Random().nextInt(6);
+  int randomIntForDiceTwo = Random().nextInt(6);
+  int randomIntForDiceThree = Random().nextInt(6);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 61, 61, 61),
-          title: const Text('Dicey / Octa'),
+          title: const Text('Dicey / Cube'),
           automaticallyImplyLeading: false,
           actions: <Widget>[
             PopupMenuButton(
@@ -337,15 +342,20 @@ class _MyOctaState extends State<MyOcta> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   Image.asset(
-                    'Octahedron/' + imageArray[randomIntForDiceOne],
-                    height: 150,
-                    width: 150,
+                    'cube/' + imageArray[randomIntForDiceOne],
+                    height: 100,
+                    width: 100,
                   ),
-                  /*Image.asset(
-                    'images/' + imageArray[randomIntForDiceTwo],
-                    height: 150,
-                    width: 150,
-                  ),*/
+                  Image.asset(
+                    'cube/' + imageArray[randomIntForDiceTwo],
+                    height: 100,
+                    width: 100,
+                  ),
+                  Image.asset(
+                    'cube/' + imageArray[randomIntForDiceThree],
+                    height: 100,
+                    width: 100,
+                  ),
                 ],
               ),
               Padding(
@@ -375,8 +385,9 @@ class _MyOctaState extends State<MyOcta> {
 
   void changeImage() {
     setState(() {
-      randomIntForDiceOne = Random().nextInt(8);
-      // randomIntForDiceTwo = Random().nextInt(6);
+      randomIntForDiceOne = Random().nextInt(6);
+      randomIntForDiceTwo = Random().nextInt(6);
+      randomIntForDiceThree = Random().nextInt(6);
     });
   }
 }

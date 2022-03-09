@@ -1,15 +1,33 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:diceapp/Tetrahedron.dart';
+import 'package:diceapp/Tetrahedron2.dart';
+import 'package:diceapp/cube2.dart';
 import 'package:diceapp/octahedron.dart';
 import 'package:diceapp/pentatrape.dart';
+import 'package:diceapp/pentatrape2.dart';
+import 'package:diceapp/pentatrape3.dart';
+import 'package:diceapp/pentatrape4.dart';
 import 'package:flutter/material.dart';
 import 'package:diceapp/side_menu_widget.dart';
-import 'dart:math';
+//import 'dart:math';
 
+import 'Tetrahedron3.dart';
+import 'Tetrahedron4.dart';
 import 'cube.dart';
+import 'cube3.dart';
+import 'cube4.dart';
 import 'dodecahedron.dart';
+import 'dodecahedron2.dart';
+import 'dodecahedron3.dart';
+import 'dodecahedron4.dart';
 import 'icosahedron.dart';
+import 'icosahedron2.dart';
+import 'icosahedron3.dart';
+import 'icosahedron4.dart';
+import 'octahedron2.dart';
+import 'octahedron3.dart';
+import 'octahedron4.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -25,6 +43,7 @@ class MenuRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 61, 61, 61),
           title: const Text('Dicey / Menu'),
           automaticallyImplyLeading: false,
           actions: <Widget>[
@@ -42,9 +61,12 @@ class MenuRoute extends StatelessWidget {
         ),
         body: Center(
             child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            Image.asset('cube/six.png'),
+            //Image size needs to be adjusted
+
             ElevatedButton(
               child: const Text("Play"),
               onPressed: () {
@@ -53,6 +75,12 @@ class MenuRoute extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const PlayRoute()),
                 );
               },
+              style: ElevatedButton.styleFrom(
+                  primary: const Color.fromARGB(255, 61, 61, 61),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                  textStyle: const TextStyle(
+                      fontSize: 30, fontWeight: FontWeight.bold)),
             ),
             ElevatedButton(
               child: const Text("Options"),
@@ -62,6 +90,12 @@ class MenuRoute extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const OptionsRoute()),
                 );
               },
+              style: ElevatedButton.styleFrom(
+                  primary: const Color.fromARGB(255, 61, 61, 61),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                  textStyle: const TextStyle(
+                      fontSize: 30, fontWeight: FontWeight.bold)),
             ),
           ],
         )));
@@ -93,6 +127,7 @@ class PlayRouteState extends State<PlayRoute> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 61, 61, 61),
         title: const Text('Dicey / Play'),
         automaticallyImplyLeading: false,
         actions: <Widget>[
@@ -106,10 +141,34 @@ class PlayRouteState extends State<PlayRoute> {
                     iconColor: const Color.fromARGB(255, 0, 0, 0),
                     textColor: const Color.fromARGB(255, 0, 0, 0),
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => MyTetra()),
-                      );
+                      if (MyStatefulCubeState.number == 1) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyTetra()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 2) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyTetra2()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 3) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyTetra3()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 4) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyTetra4()),
+                        );
+                      }
                     }),
               ),
               PopupMenuItem(
@@ -119,10 +178,34 @@ class PlayRouteState extends State<PlayRoute> {
                     iconColor: const Color.fromARGB(255, 0, 0, 0),
                     textColor: const Color.fromARGB(255, 0, 0, 0),
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => MyCube()),
-                      );
+                      if (MyStatefulCubeState.number == 1) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyCube()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 2) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyCube2()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 3) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyCube3()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 4) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyCube4()),
+                        );
+                      }
                     }),
               ),
               PopupMenuItem(
@@ -132,10 +215,34 @@ class PlayRouteState extends State<PlayRoute> {
                     iconColor: const Color.fromARGB(255, 0, 0, 0),
                     textColor: const Color.fromARGB(255, 0, 0, 0),
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => MyOcta()),
-                      );
+                      if (MyStatefulCubeState.number == 1) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyOcta()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 2) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyOcta2()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 3) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyOcta3()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 4) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyOcta4()),
+                        );
+                      }
                     }),
               ),
               PopupMenuItem(
@@ -145,10 +252,34 @@ class PlayRouteState extends State<PlayRoute> {
                     iconColor: const Color.fromARGB(255, 0, 0, 0),
                     textColor: const Color.fromARGB(255, 0, 0, 0),
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Mypentatrape()),
-                      );
+                      if (MyStatefulCubeState.number == 1) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Mypentatrape()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 2) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Mypentatrape2()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 3) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Mypentatrape3()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 4) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Mypentatrape4()),
+                        );
+                      }
                     }),
               ),
               PopupMenuItem(
@@ -158,10 +289,34 @@ class PlayRouteState extends State<PlayRoute> {
                     iconColor: const Color.fromARGB(255, 0, 0, 0),
                     textColor: const Color.fromARGB(255, 0, 0, 0),
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => MyDodeca()),
-                      );
+                      if (MyStatefulCubeState.number == 1) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyDodeca()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 2) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyDodeca2()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 3) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyDodeca3()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 4) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyDodeca4()),
+                        );
+                      }
                     }),
               ),
               PopupMenuItem(
@@ -171,10 +326,34 @@ class PlayRouteState extends State<PlayRoute> {
                     iconColor: const Color.fromARGB(255, 0, 0, 0),
                     textColor: const Color.fromARGB(255, 0, 0, 0),
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => MyIcosa()),
-                      );
+                      if (MyStatefulCubeState.number == 1) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyIcosa()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 2) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyIcosa2()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 3) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyIcosa3()),
+                        );
+                      }
+                      if (MyStatefulCubeState.number == 4) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyIcosa4()),
+                        );
+                      }
                     }),
               ),
             ],
@@ -186,7 +365,7 @@ class PlayRouteState extends State<PlayRoute> {
       ),
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          ElevatedButton(
+          /*ElevatedButton(
             onPressed: _openDrawer,
             child: const Text('Pick your dices!!!'),
             style: ElevatedButton.styleFrom(
@@ -194,11 +373,17 @@ class PlayRouteState extends State<PlayRoute> {
                 fixedSize: const Size(150, 50),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50))),
-          ),
+          ),*/
           ElevatedButton(
             onPressed: () {
               Navigator.pop(context);
             },
+            style: ElevatedButton.styleFrom(
+                primary: const Color.fromARGB(255, 61, 61, 61),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                textStyle:
+                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
             child: const Text('Menu'),
           ),
         ]),
@@ -215,6 +400,7 @@ class OptionsRoute extends StatelessWidget {
     // ignore: dead_code
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 61, 61, 61),
         title: const Text('Dicey / Options'),
         automaticallyImplyLeading: false,
       ),
@@ -229,6 +415,12 @@ class OptionsRoute extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
+              style: ElevatedButton.styleFrom(
+                  primary: const Color.fromARGB(255, 61, 61, 61),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                  textStyle: const TextStyle(
+                      fontSize: 30, fontWeight: FontWeight.bold)),
               child: const Text('Menu'),
             ),
           ],

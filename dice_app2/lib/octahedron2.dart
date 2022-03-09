@@ -24,18 +24,18 @@ import 'icosahedron2.dart';
 import 'icosahedron3.dart';
 import 'icosahedron4.dart';
 import 'main.dart';
-import 'octahedron2.dart';
+import 'octahedron.dart';
 import 'octahedron3.dart';
 import 'octahedron4.dart';
 
-class MyStatefulOcta extends StatefulWidget {
-  const MyStatefulOcta({Key? key}) : super(key: key);
+class MyStatefulOcta2 extends StatefulWidget {
+  const MyStatefulOcta2({Key? key}) : super(key: key);
 
   @override
-  State<MyStatefulOcta> createState() => _MyStatefulOctaState();
+  State<MyStatefulOcta2> createState() => _MyStatefulOctaState2();
 }
 
-class _MyStatefulOctaState extends State<MyStatefulOcta> {
+class _MyStatefulOctaState2 extends State<MyStatefulOcta2> {
   double _currentSliderValue = 1;
 
   @override
@@ -55,15 +55,15 @@ class _MyStatefulOctaState extends State<MyStatefulOcta> {
   }
 }
 
-class MyOcta extends StatefulWidget {
+class MyOcta2 extends StatefulWidget {
   // ignore: use_key_in_widget_constructors
-  const MyOcta();
+  const MyOcta2();
 
   @override
   _MyOctaState createState() => _MyOctaState();
 }
 
-class _MyOctaState extends State<MyOcta> {
+class _MyOctaState extends State<MyOcta2> {
   var imageArray = [
     'one.png',
     'two.png',
@@ -76,7 +76,7 @@ class _MyOctaState extends State<MyOcta> {
   ];
   //var random = new Random();
   int randomIntForDiceOne = Random().nextInt(8);
-  //int randomIntForDiceTwo = Random().nextInt(6);
+  int randomIntForDiceTwo = Random().nextInt(8);
 
   @override
   Widget build(BuildContext context) {
@@ -341,11 +341,11 @@ class _MyOctaState extends State<MyOcta> {
                     height: 150,
                     width: 150,
                   ),
-                  /*Image.asset(
-                    'images/' + imageArray[randomIntForDiceTwo],
+                  Image.asset(
+                    'Octahedron/' + imageArray[randomIntForDiceTwo],
                     height: 150,
                     width: 150,
-                  ),*/
+                  ),
                 ],
               ),
               Padding(
@@ -376,7 +376,7 @@ class _MyOctaState extends State<MyOcta> {
   void changeImage() {
     setState(() {
       randomIntForDiceOne = Random().nextInt(8);
-      // randomIntForDiceTwo = Random().nextInt(6);
+      randomIntForDiceTwo = Random().nextInt(8);
     });
   }
 }

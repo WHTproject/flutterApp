@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:diceapp/octahedron.dart';
 import 'package:diceapp/pentatrape.dart';
 import 'package:diceapp/pentatrape2.dart';
 import 'package:diceapp/pentatrape3.dart';
@@ -8,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 import 'Tetrahedron.dart';
-import 'Tetrahedron2.dart';
 import 'Tetrahedron3.dart';
 import 'Tetrahedron4.dart';
 import 'cube.dart';
@@ -28,14 +28,14 @@ import 'octahedron2.dart';
 import 'octahedron3.dart';
 import 'octahedron4.dart';
 
-class MyStatefulOcta extends StatefulWidget {
-  const MyStatefulOcta({Key? key}) : super(key: key);
+class MyStatefulTetra extends StatefulWidget {
+  const MyStatefulTetra({Key? key}) : super(key: key);
 
   @override
-  State<MyStatefulOcta> createState() => _MyStatefulOctaState();
+  State<MyStatefulTetra> createState() => _MyStatefulTetraState();
 }
 
-class _MyStatefulOctaState extends State<MyStatefulOcta> {
+class _MyStatefulTetraState extends State<MyStatefulTetra> {
   double _currentSliderValue = 1;
 
   @override
@@ -55,35 +55,31 @@ class _MyStatefulOctaState extends State<MyStatefulOcta> {
   }
 }
 
-class MyOcta extends StatefulWidget {
+class MyTetra2 extends StatefulWidget {
   // ignore: use_key_in_widget_constructors
-  const MyOcta();
+  const MyTetra2();
 
   @override
-  _MyOctaState createState() => _MyOctaState();
+  _MyTetraState createState() => _MyTetraState();
 }
 
-class _MyOctaState extends State<MyOcta> {
+class _MyTetraState extends State<MyTetra2> {
   var imageArray = [
     'one.png',
     'two.png',
     'three.png',
     'four.png',
-    'five.png',
-    'six.png',
-    'seven.png',
-    'eight.png',
   ];
   //var random = new Random();
-  int randomIntForDiceOne = Random().nextInt(8);
-  //int randomIntForDiceTwo = Random().nextInt(6);
+  int randomIntForDiceOne = Random().nextInt(4);
+  int randomIntForDiceTwo = Random().nextInt(4);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 61, 61, 61),
-          title: const Text('Dicey / Octa'),
+          title: const Text('Dicey / Tetra'),
           automaticallyImplyLeading: false,
           actions: <Widget>[
             PopupMenuButton(
@@ -337,15 +333,15 @@ class _MyOctaState extends State<MyOcta> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   Image.asset(
-                    'Octahedron/' + imageArray[randomIntForDiceOne],
+                    'Tetrahedron/' + imageArray[randomIntForDiceOne],
                     height: 150,
                     width: 150,
                   ),
-                  /*Image.asset(
-                    'images/' + imageArray[randomIntForDiceTwo],
+                  Image.asset(
+                    'Tetrahedron/' + imageArray[randomIntForDiceTwo],
                     height: 150,
                     width: 150,
-                  ),*/
+                  ),
                 ],
               ),
               Padding(
@@ -375,8 +371,8 @@ class _MyOctaState extends State<MyOcta> {
 
   void changeImage() {
     setState(() {
-      randomIntForDiceOne = Random().nextInt(8);
-      // randomIntForDiceTwo = Random().nextInt(6);
+      randomIntForDiceOne = Random().nextInt(4);
+      randomIntForDiceTwo = Random().nextInt(4);
     });
   }
 }

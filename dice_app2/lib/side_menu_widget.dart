@@ -11,14 +11,14 @@ class SideMenuWidget extends StatelessWidget {
             color: const Color.fromARGB(255, 255, 255, 255),
             child: ListView(children: <Widget>[
               const SizedBox(height: 30),
-              buildMenuItem(
+              buildMenuItemTetra(
                 text: 'Tetrahedron',
                 icon: Icons.view_in_ar,
-              )
+              ),
             ])));
   }
 
-  Widget buildMenuItem({
+  Widget buildMenuItemTetra({
     required String text,
     required IconData icon,
   }) {
