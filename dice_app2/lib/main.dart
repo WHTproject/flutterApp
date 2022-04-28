@@ -3,6 +3,7 @@
 import 'package:diceapp/Tetrahedron.dart';
 import 'package:diceapp/Tetrahedron2.dart';
 import 'package:diceapp/cube2.dart';
+import 'package:diceapp/helpmenuwidget.dart';
 import 'package:diceapp/octahedron.dart';
 import 'package:diceapp/pentatrape.dart';
 import 'package:diceapp/pentatrape2.dart';
@@ -50,7 +51,13 @@ class MenuRoute extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 20.0),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HelpMenuWidget()),
+                  );
+                },
                 child: const Icon(
                   Icons.help,
                   size: 26.0,
@@ -365,6 +372,10 @@ class PlayRouteState extends State<PlayRoute> {
       ),
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          const Text(
+            'Choose your dice',
+            style: TextStyle(height: 10, fontSize: 15),
+          ),
           /*ElevatedButton(
             onPressed: _openDrawer,
             child: const Text('Pick your dices!!!'),
@@ -374,6 +385,7 @@ class PlayRouteState extends State<PlayRoute> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50))),
           ),*/
+
           ElevatedButton(
             onPressed: () {
               Navigator.pop(context);
@@ -413,7 +425,10 @@ class OptionsRoute extends StatelessWidget {
             const MyStatefulCube(),
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MenuRoute()),
+                );
               },
               style: ElevatedButton.styleFrom(
                   primary: const Color.fromARGB(255, 61, 61, 61),

@@ -12,8 +12,8 @@ class SideMenuWidget extends StatelessWidget {
             child: ListView(children: <Widget>[
               const SizedBox(height: 30),
               buildMenuItemTetra(
-                text: 'Tetrahedron',
-                icon: Icons.view_in_ar,
+                text: 'Catdicetrophe',
+                icon: Icons.help,
               ),
             ])));
   }

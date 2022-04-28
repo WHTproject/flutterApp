@@ -328,16 +328,20 @@ class _MyCubeState4 extends State<MyCube4> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              const Padding(
-                padding: EdgeInsets.only(bottom: 60),
-                /* child: Text(
+              Padding(
+                padding: const EdgeInsets.only(bottom: 60),
+                child: Text(
                   'The sum is: ' +
-                      (randomIntForDiceOne + randomIntForDiceTwo + 2)
+                      (randomIntForDiceOne +
+                              randomIntForDiceTwo +
+                              randomIntForDiceThree +
+                              randomIntForDiceFour +
+                              4)
                           .toString(),
                   style: const TextStyle(
                     fontSize: 20,
                   ),
-                ),*/
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

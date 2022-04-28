@@ -334,16 +334,14 @@ class _MyIcosaState extends State<MyIcosa> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              const Padding(
-                padding: EdgeInsets.only(bottom: 60),
-                /* child: Text(
-                  'The sum is: ' +
-                      (randomIntForDiceOne + randomIntForDiceTwo + 2)
-                          .toString(),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 60),
+                child: Text(
+                  'The sum is: ' + (randomIntForDiceOne + 1).toString(),
                   style: const TextStyle(
                     fontSize: 20,
                   ),
-                ),*/
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
